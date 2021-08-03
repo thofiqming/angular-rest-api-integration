@@ -1,14 +1,10 @@
 <form [formGroup]="form">
 
-  <h2> User Registration </h2>
+  <h2> User Login </h2>
 
   {{errors != undefined ? (errors | json) : ''}}
-  <div *ngIf="userRegisteredSuccess !== undefined">
-    User registered : {{userRegisteredSuccess | json}}
-  </div>
-
-  <div>
-    Name: <input style="margin-left: 30px" name="username" type="text" formControlName="username"/>
+  <div *ngIf="token !== undefined">
+    Login Success, JWT Token : {{token | json}}
   </div>
 
   <div>
@@ -20,8 +16,7 @@
   </div>
 
   <div>
-    <button (click)="submit()">Submit</button>
-    <a style="margin-left: 20px" routerLink="login">login</a>
+    <button (click)="login()">Login</button>
   </div>
 
 </form>
